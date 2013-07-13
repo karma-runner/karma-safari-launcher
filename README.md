@@ -1,6 +1,6 @@
 # karma-safari-launcher
 
-> Launcher for Safar.
+> Launcher for Safari.
 
 For more information on Karma see the [homepage].
 
