@@ -1,27 +1,30 @@
 {
-  "name": "testacular-safari-launcher",
+  "name": "karma-safari-launcher",
   "version": "0.0.1",
-  "description": "A Testacular plugin. Launcher for Safari.",
+  "description": "A Karma plugin. Launcher for Safari.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/testacular/testacular-safari-launcher.git"
+    "url": "git://github.com/karma-runner/karma-safari-launcher.git"
   },
   "keywords": [
-    "testacular-plugin",
+    "karma-plugin",
     "launcher",
     "safari"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
   "dependencies": {},
   "peerDependencies": {
-    "testacular": "~0.5"
+    "karma": "~0.9"
   },
-  "os" : [
-    "darwin"
-  ],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-bump": "~0.0.11",
+    "grunt-npm": "~0.0.2",
+    "grunt-auto-release": "~0.0.3"
+  },
   "license": "MIT"
 }
