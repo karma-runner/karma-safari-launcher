@@ -24,7 +24,8 @@ npm install karma-safari-launcher --save-dev
 // karma.conf.js
 module.exports = function(config) {
   config.set({
-    browsers: ['Safari']
+    browsers : ['Safari'],
+    plugins : ['karma-safari-launcher']
   });
 };
 ```
