@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-
+var exec = require('child_process').exec;
 
 var SafariBrowser = function(baseBrowserDecorator) {
   baseBrowserDecorator(this);
@@ -17,6 +17,24 @@ var SafariBrowser = function(baseBrowserDecorator) {
         self._execCommand(self._getCommand(), [staticHtmlPath]);
       });
     });
+  };
+
+  var oldEmitAsync = this.emitAsync;
+
+  this.emitAsync = function () {
+    if (arguments[0] !== 'kill') {
+      return oldEmitAsync.apply(this, arguments);
+    } else {
+      return new Promise (function (resolve, reject) {
+        exec('osascript -e \'quit app "Safari"\'', function (err) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
+      });
+    }
   };
 };
 
