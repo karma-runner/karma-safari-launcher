@@ -16,7 +16,9 @@
     "safari"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^3.4.0"
+  },
   "peerDependencies": {
     "karma": ">=0.9"
   },
