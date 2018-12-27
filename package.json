@@ -17,7 +17,7 @@
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
   "dependencies": {
-    "wd": "^1.10.3"
+    "wd": "https://github.com/admc/wd.git#master"
   },
   "peerDependencies": {
     "karma": ">=0.9"

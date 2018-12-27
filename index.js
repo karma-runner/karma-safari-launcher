@@ -60,6 +60,11 @@ var Safari = function(baseBrowserDecorator, args, logger) {
     // TODO: It would be nice if this was configurable
     const SLEEP_DURATION = 500;
 
+    const webDriverConfig = {
+      browserName: 'safari',
+      allowW3C: true
+    };
+
     function attachKarma(error) {
       attempts += 1;
       if (error && error.code === 'ECONNREFUSED' && attempts === 1) {
@@ -67,13 +72,13 @@ var Safari = function(baseBrowserDecorator, args, logger) {
         log.debug(self._getCommand() + ' is not running.');
         log.debug('Attempting to start ' + self._getCommand() + ' ' + self._getOptions(url).join(' '));
         superStart(url);
-        self.driver.init({ browserName: 'safari' }, attachKarma);
+        self.driver.init(webDriverConfig, attachKarma);
       } else if (error && error.code === 'ECONNREFUSED' && attempts <= MAX_ATTEMPTS) {
         log.debug('attachKarma ' + attempts + ' of ' + MAX_ATTEMPTS);
         log.debug('Going to give the driver time to start-up. Sleeping for ' + SLEEP_DURATION + 'ms.');
         setTimeout(function() {
           log.debug('Awoke to retry.');
-          self.driver.init({ browserName: 'safari' }, attachKarma);
+          self.driver.init(webDriverConfig, attachKarma);
         }, SLEEP_DURATION);
       } else if (error) {
         log.error('Could not connect to Safari.');
@@ -85,7 +90,7 @@ var Safari = function(baseBrowserDecorator, args, logger) {
       }
     }
 
-    self.driver.init({ browserName: 'safari' }, attachKarma);
+    self.driver.init(webDriverConfig, attachKarma);
   });
 
   this.on('kill', (done) => {
