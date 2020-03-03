@@ -16,7 +16,9 @@
     "safari"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
-  "dependencies": {},
+  "dependencies": {
+    "wd": ">=1.11.2"
+  },
   "peerDependencies": {
     "karma": ">=0.9"
   },
